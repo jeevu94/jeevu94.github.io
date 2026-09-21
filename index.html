@@ -1,81 +1,108 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Jeevan G, jeevan.jeevu94@gmail.com">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>SunFoTechPower</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="UNNIVA — Fashion & lifestyle essentials. Minimalist Design. Universal Perspectives.">
+  <meta name="theme-color" content="#f5f3ef">
+  <title>UNNIVA — Fashion & Lifestyle</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-    body {
-    font-family: Georgia, serif;
-      background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('tra.jpg');
-      background-repeat: no-repeat;
-background-attachment: fixed;
-  background-size: 100% 100%;
-    }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+  <link href="cover.css" rel="stylesheet">
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
-    <header class="mb-auto">
-        <div>
-            <h3 class="float-md-start mb-0">Sunfotechpower</h3>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-<!--                <a class="nav-link" href="#">Features</a>-->
-<!--                <a class="nav-link" href="#">Contact</a>-->
-            </nav>
-        </div>
-    </header>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="UNNIVA home">UNNIVA</a>
+    <nav aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#collections">Collections</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <main class="px-3">
-        <h1>Manufacturing Relationships. Distributing Quality.</h1>
-        <p class="lead">Sunfotechpower believes in Safety, Quality & Excellence. The main Goal of the company is to see a happy customers.</p>
-        <p class="lead">
-            <a href="tel:9742240906" class="btn btn-lg btn-secondary fw-bold border-white bg-white">
-              Contact Us
-            </a>
-        </p>
-    </main>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">UNNIVA · FASHION &amp; LIFESTYLE</p>
+        <h1>Minimalist Design.<br><em>Universal Perspectives.</em></h1>
+        <p class="intro">Curated fashion &amp; premium lifestyle essentials.</p>
+        <p class="supporting">Thoughtfully selected pieces for modern living — where simplicity meets individuality.</p>
+        <a class="button" href="#collections">Explore the vision <span>↘</span></a>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <span>U</span>
+      </div>
+    </section>
 
-    <footer class="mt-auto text-white">
-        <p >Goutham N S, Sunfotech Power Industries, C-29 Ganjam Industrial Area, Ganjam Karnataka, Mandya, 571477.</p>
-        <p id="#copyright">Copyright © 2023 Sunfotechpower. All rights reserved.</p>
-    </footer>
-</div>
+    <section class="statement" id="about">
+      <p class="section-label">01 / THE IDEA</p>
+      <div>
+        <h2>Less noise.<br><span>More meaning.</span></h2>
+        <p>UNNIVA is built around a simple belief: the things we choose to live with should feel considered, useful and distinctly our own.</p>
+      </div>
+    </section>
 
-<script>
-const copyRight = document.getElementById("#copyright");
-const date = new Date;
-const year = date.getFullYear();
-copyRight.innerHTML = `Copyright © ${year} Sunfotechpower. All rights reserved.`
-</script>
+    <section class="collections" id="collections">
+      <div class="section-heading">
+        <p class="section-label">02 / THE WORLD OF UNNIVA</p>
+        <h2>Curated for<br><em>everyday expression.</em></h2>
+      </div>
+
+      <div class="collection-grid">
+        <article class="collection-card card-fashion">
+          <span>01</span>
+          <div>
+            <p>FASHION</p>
+            <h3>Essential forms.<br>Distinctive presence.</h3>
+          </div>
+        </article>
+
+        <article class="collection-card card-lifestyle">
+          <span>02</span>
+          <div>
+            <p>LIFESTYLE</p>
+            <h3>Objects that<br>belong in your world.</h3>
+          </div>
+        </article>
+
+        <article class="collection-card card-essentials">
+          <span>03</span>
+          <div>
+            <p>ESSENTIALS</p>
+            <h3>Thoughtful choices.<br>Everyday utility.</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-inner">
+        <p class="section-label">03 / OUR PERSPECTIVE</p>
+        <blockquote>“A considered life is built one choice at a time.”</blockquote>
+        <p>From the timeless to the unexpected, UNNIVA looks across cultures, ideas and perspectives to bring together things worth choosing.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="section-label">04 / CONNECT</p>
+      <h2>Something worth<br><em>discovering.</em></h2>
+      <p>UNNIVA is taking shape. Follow the journey as our first collections come to life.</p>
+      <a class="contact-link" href="mailto:hello@unniva.com">hello@unniva.com <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">UNNIVA</div>
+    <p>Minimalist Design. Universal Perspectives.</p>
+    <p>© <span id="year"></span> UNNIVA. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
