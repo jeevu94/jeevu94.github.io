@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House of UNNIVA — Your Universe. Your Way.</title>
+  <meta name="description" content="House of UNNIVA — A premium fashion & lifestyle apparel brand. From India to the world.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="current insta dp.png">
+  <link rel="apple-touch-icon" href="current insta dp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-alt: #111111;
+      --fg: #f5f0e8;
+      --muted: #9a948a;
+      --accent: #c9a96e;
+      --accent-light: #e0c9a0;
+      --border: rgba(201, 169, 110, 0.2);
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 0; }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--accent);
+    }
+
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--fg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 6rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.08), transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(201,169,110,0.04), transparent 50%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('current insta dp.png') no-repeat center center / cover;
+      opacity: 0.06;
+      filter: grayscale(100%);
+    }
+
+    .hero-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeInDown 1.2s ease;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      font-weight: 200;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      position: relative; z-index: 1;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 3rem;
+      border: 1px solid var(--accent);
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      position: relative; z-index: 1;
+      animation: fadeInUp 1s ease 0.8s both;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+
+    .hero-cta:hover { color: var(--bg); border-color: var(--accent); }
+    .hero-cta:hover::before { left: 0; }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      z-index: 1;
+      animation: fadeIn 2s ease 1.2s both;
+    }
+
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); transform-origin: top; }
+      50% { transform: scaleY(0.4); transform-origin: top; }
+    }
+
+    section {
+      padding: 8rem 2rem;
+      position: relative;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      text-align: center;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--accent); }
+
+    .section-divider {
+      width: 60px; height: 1px;
+      background: var(--accent);
+      margin: 0 auto 3rem;
+    }
+
+    .about {
+      background: var(--bg-alt);
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p strong {
+      color: var(--fg);
+      font-weight: 400;
+    }
+
+    .about-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .collections-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .collection-card {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .collection-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9), transparent 50%);
+      z-index: 1;
+    }
+
+    .collection-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: brightness(0.85);
+    }
+
+    .collection-card:hover img {
+      transform: scale(1.08);
+      filter: brightness(1);
+    }
+
+    .collection-info {
+      position: absolute;
+      bottom: 2rem; left: 2rem;
+      z-index: 2;
+    }
+
+    .collection-info h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .collection-info span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .philosophy {
+      background: var(--bg-alt);
+      text-align: center;
+      padding: 10rem 2rem;
+    }
+
+    .philosophy-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 300;
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.4;
+      color: var(--fg);
+    }
+
+    .philosophy-quote::before,
+    .philosophy-quote::after {
+      content: '"';
+      color: var(--accent);
+      font-size: 1.2em;
+    }
+
+    .philosophy-author {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .global {
+      text-align: center;
+    }
+
+    .global-cities {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 3rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+
+    .global-city {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .global-city::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .global-city:hover { color: var(--fg); }
+    .global-city:hover::after { width: 100%; left: 0; }
+
+    .global-city .dot {
+      color: var(--accent);
+      font-size: 0.5rem;
+      vertical-align: middle;
+      margin-right: 0.4rem;
+    }
+
+    .newsletter {
+      background: var(--bg-alt);
+      text-align: center;
+    }
+
+    .newsletter-form {
+      max-width: 480px;
+      margin: 2rem auto 0;
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .newsletter-form:focus-within { border-color: var(--accent); }
+
+    .newsletter-form input {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 1rem 0;
+      outline: none;
+      letter-spacing: 0.05em;
+    }
+
+    .newsletter-form input::placeholder { color: var(--muted); }
+
+    .newsletter-form button {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .newsletter-form button:hover { color: var(--fg); }
+
+    .newsletter-msg {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .newsletter-msg.show { opacity: 1; }
+
+    footer {
+      padding: 4rem 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo img {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      object-fit: cover;
+    }
+
+    .footer-logo span {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-social a {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-bottom a { color: var(--accent); text-decoration: none; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.8rem 1.5rem; }
+
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 100%; height: 100vh;
+        background: var(--bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        z-index: 99;
+      }
+
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1rem; }
+
+      .nav-menu-btn { display: block; z-index: 101; }
+
+      section { padding: 5rem 1.5rem; }
+
+      .collections-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .about-stats { gap: 2.5rem; }
+
+      .global-cities { gap: 1.5rem 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero-tagline { font-size: 0.95rem; }
+      .stat-num { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <img src="current insta dp.png" alt="House of UNNIVA">
+      <span class="nav-logo-text">UNNIVA</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#global">Presence</a></li>
+      <li><a href="#newsletter">Contact</a></li>
+    </ul>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <section class="hero" id="hero">
+    <img src="current insta dp.png" alt="House of UNNIVA" class="hero-logo">
+    <p class="hero-eyebrow">Fashion &amp; Lifestyle Apparel</p>
+    <h1>House of <em>UNNIVA</em></h1>
+    <p class="hero-tagline">Your universe. Your way.</p>
+    <a href="#collections" class="hero-cta">Explore Collections</a>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <p class="section-label reveal">Our Story</p>
+    <h2 class="section-title reveal">From India <em>to the world</em></h2>
+    <div class="section-divider reveal"></div>
+    <div class="about-content reveal">
+      <p>
+        <strong>House of UNNIVA</strong> is a premium fashion and lifestyle apparel brand born from the
+        rich heritage of Indian craftsmanship and reimagined for the global stage. Every piece is a
+        dialogue between tradition and modernity — woven with intention, tailored with precision,
+        and designed to transcend borders.
+      </p>
+      <p>
+        We believe luxury is not loud. It is felt. It lives in the weight of a fabric, the cut of a
+        silhouette, and the quiet confidence of those who wear it. From India to the world, we craft
+        apparel that speaks a universal language of elegance.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat reveal">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Crafted with Care</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Global Patrons</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collections">
+    <p class="section-label reveal">Featured</p>
+    <h2 class="section-title reveal">The <em>Collections</em></h2>
+    <div class="section-divider reveal"></div>
+    <div class="collections-grid">
+      <div class="collection-card reveal">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80" alt="Heritage Collection">
+        <div class="collection-info">
+          <h3>Heritage</h3>
+          <span>Autumn / Winter</span>
+        </div>
+      </div>
+      <div class="collection-card reveal">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1930b?w=800&q=80" alt="Atelier Collection">
+        <div class="collection-info">
+          <h3>Atelier</h3>
+          <span>Signature Line</span>
+        </div>
+      </div>
+      <div class="collection-card reveal">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80" alt="Monsoon Collection">
+        <div class="collection-info">
+          <h3>Monsoon</h3>
+          <span>Spring / Summer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy" id="philosophy">
+    <p class="section-label reveal">Our Philosophy</p>
+    <p class="philosophy-quote reveal">
+      Luxury is not about what you own — it is about how you choose to live. We craft for those who
+      define their own universe, their own way.
+    </p>
+    <p class="philosophy-author reveal">House of UNNIVA</p>
+  </section>
+
+  <section class="global" id="global">
+    <p class="section-label reveal">Worldwide</p>
+    <h2 class="section-title reveal">Global <em>Presence</em></h2>
+    <div class="section-divider reveal"></div>
+    <div class="global-cities reveal">
+      <span class="global-city"><span class="dot">&#9679;</span>Mumbai</span>
+      <span class="global-city"><span class="dot">&#9679;</span>New Delhi</span>
+      <span class="global-city"><span class="dot">&#9679;</span>Dubai</span>
+      <span class="global-city"><span class="dot">&#9679;</span>London</span>
+      <span class="global-city"><span class="dot">&#9679;</span>New York</span>
+      <span class="global-city"><span class="dot">&#9679;</span>Paris</span>
+      <span class="global-city"><span class="dot">&#9679;</span>Tokyo</span>
+      <span class="global-city"><span class="dot">&#9679;</span>Singapore</span>
+    </div>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <p class="section-label reveal">Stay Connected</p>
+    <h2 class="section-title reveal">Join the <em>House</em></h2>
+    <div class="section-divider reveal"></div>
+    <p class="reveal" style="color:var(--muted); max-width:500px; margin:0 auto;">
+      Be the first to experience new collections, exclusive previews, and the world of UNNIVA.
+    </p>
+    <form class="newsletter-form reveal" id="newsletterForm">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-msg" id="newsletterMsg">Welcome to the House of UNNIVA.</p>
+  </section>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="current insta dp.png" alt="House of UNNIVA">
+      <span>UNNIVA</span>
+    </div>
+    <p class="footer-tagline">Your universe. Your way.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram" title="Instagram">IG</a>
+      <a href="#" aria-label="X" title="X / Twitter">X</a>
+      <a href="#" aria-label="Pinterest" title="Pinterest">PIN</a>
+      <a href="#" aria-label="LinkedIn" title="LinkedIn">IN</a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 House of UNNIVA. From India to the world. &nbsp;|&nbsp; <a href="#hero">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuBtn.innerHTML = navLinks.classList.contains('open') ? '&#10005;' : '&#9776;';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.innerHTML = '&#9776;';
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const form = document.getElementById('newsletterForm');
+    const msg = document.getElementById('newsletterMsg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      msg.classList.add('show');
+      form.reset();
+      setTimeout(() => msg.classList.remove('show'), 4000);
+    });
+  </script>
+
+</body>
+</html>
